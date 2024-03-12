@@ -3,7 +3,7 @@ const homeTeamScoreDisplay = document.getElementById("home-team-score");
 const awayTeamScoreDisplay = document.getElementById("away-team-score");
 const gameText = document.getElementById("game-text");
 const feedbackText = document.getElementById("feedback-text");
-const levelElement = document.getElementById("level-text"); // Corrected ID
+const levelElement = document.getElementById("level-text");
 const levels = [
     {
         id: 1,
@@ -93,8 +93,8 @@ function startNewQuestion() {
     do {
         switch (totalQuestions % levels.length) { // Use totalQuestions to determine level
             case 0:
-                homeTeamScore = Math.floor(Math.random() * 5);
-                awayTeamScore = Math.floor(Math.random() * 5);
+                homeTeamScore = Math.floor(Math.random() * 6); // Adjusted to generate numbers between 0 and 5
+                awayTeamScore = Math.floor(Math.random() * 6); // Adjusted to generate numbers between 0 and 5
                 break;
             case 1:
                 homeTeamScore = Math.floor(Math.random() * 10);
@@ -109,8 +109,8 @@ function startNewQuestion() {
                 awayTeamScore = Math.floor(Math.random() * 120);
                 break;
             default:
-                homeTeamScore = Math.floor(Math.random() * 5);
-                awayTeamScore = Math.floor(Math.random() * 5);
+                homeTeamScore = Math.floor(Math.random() * 6); // Adjusted to generate numbers between 0 and 5
+                awayTeamScore = Math.floor(Math.random() * 6); // Adjusted to generate numbers between 0 and 5
                 break;
         }
     } while (usedQuestions.includes(`${homeTeamScore},${awayTeamScore}`));
@@ -122,9 +122,10 @@ function startNewQuestion() {
 
     correctAnswer = homeTeamScore + awayTeamScore;
 
-// Add event listener for "Next Question" button click
-document.getElementById('next-question').addEventListener('click', nextQuestionHandler);
+    // Add event listener for "Next Question" button click
+    document.getElementById('next-question').addEventListener('click', nextQuestionHandler);
 }
+
 // Modify startGame function to reset game state
 function startGame(level) {
     document.getElementById('next-question').removeEventListener('click', nextQuestionHandler);
@@ -145,9 +146,6 @@ function startGame(level) {
 document.getElementById("start-button").addEventListener("click", function() {
     startGame(0);
 });
-
-// Event listener for the "Next Question" button
-document.getElementById('next-question').addEventListener('click', nextQuestionHandler);
 
 // Event listener for the "Check Answer" button
 document.getElementById('user-answer').addEventListener('click', function(event) {
