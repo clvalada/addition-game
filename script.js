@@ -3,30 +3,26 @@ const homeTeamScoreDisplay = document.getElementById("home-team-score");
 const awayTeamScoreDisplay = document.getElementById("away-team-score");
 const gameText = document.getElementById("game-text");
 const feedbackText = document.getElementById("feedback-text");
-const levelElement = document.getElementById("level");
+const levelElement = document.getElementById("level-text"); // Corrected ID
 const levels = [
     {
         id: 1,
-        text: "Soccer",
-        image: "soccer.jpg",
+        levelText: "Level 1: Soccer",
         description: "This is a description for Soccer."
     },
     {
         id: 2,
-        text: "Baseball",
-        image: "baseball.jpg",
+        levelText: "Level 2: Baseball",
         description: "This is a description for Baseball."
     },
     {
         id: 3,
-        text: "Football",
-        image: "football.jpg",
+        levelText: "Level 3: Football",
         description: "This is a description for Football."
     },
     {
         id: 4,
-        text: "Basketball",
-        image: "basketball.jpg",
+        levelText: "Level 4: Basketball",
         description: "This is a description for Basketball."
     }
 ];
@@ -34,135 +30,136 @@ const levels = [
 let correct = 0;
 let totalQuestions = 0;
 let correctAnswer;
-let usedQuestions = []; // Array to store used question pairs
+let usedQuestions = [];
 
+// Define a function to handle the end of each level
+function endLevel() {
+    // Determine the game text based on the number of correct answers
+    let levelCompletionText = "";
+    if (correct <= 5) {
+        levelCompletionText = "Good try, Rookie. You've got a lot of potential!";
+    } else if (correct <= 7) {
+        levelCompletionText = "Nice work. You're a veteran player now.";
+    } else if (correct <= 9) {
+        levelCompletionText = "You're on fire, All-Star!";
+    } else if (correct === 10) {
+        levelCompletionText = "You are the G.O.A.T!";
+    }
+    
+    // Update game text
+    gameText.textContent = levelCompletionText;
+
+    // Hide the answer box
+    document.getElementById('answer-box').style.display = 'none';
+
+    // Show the end game buttons
+    document.getElementById('end-game-buttons').style.display = 'block';
+
+    // Add functionality to "Play Again" button
+    document.getElementById('play-again').addEventListener('click', function() {
+        window.location = 'index.html';
+    });
+
+    // Add functionality to "Next Level" button
+    document.getElementById('next-level').addEventListener('click', function() {
+        // Start the next level
+        const nextLevel = (totalQuestions / 10) % levels.length; // Calculate next level index
+        startGame(nextLevel);
+    });
+}
+
+// Modify nextQuestionHandler function to handle end of level
+function nextQuestionHandler(event) {
+    event.preventDefault();
+
+    // Increment totalQuestions
+    totalQuestions++;
+
+    if (totalQuestions % 10 === 0) { // Check if 10 questions have been answered
+        endLevel(); // If 10 questions answered, end the level
+    } else { // Otherwise, start a new question
+        startNewQuestion();
+    }
+}
+
+// Add a function to start a new question
+function startNewQuestion() {
+    document.getElementById('answer-box').style.display = 'block';
+    document.getElementById('user-answer').style.display = 'block';
+    document.getElementById('next-question').style.display = 'none';
+    feedbackText.textContent = "";
+
+    let homeTeamScore, awayTeamScore;
+    do {
+        switch (totalQuestions % levels.length) { // Use totalQuestions to determine level
+            case 0:
+                homeTeamScore = Math.floor(Math.random() * 5);
+                awayTeamScore = Math.floor(Math.random() * 5);
+                break;
+            case 1:
+                homeTeamScore = Math.floor(Math.random() * 10);
+                awayTeamScore = Math.floor(Math.random() * 10);
+                break;
+            case 2:
+                homeTeamScore = Math.floor(Math.random() * 50);
+                awayTeamScore = Math.floor(Math.random() * 50);
+                break;
+            case 3:
+                homeTeamScore = Math.floor(Math.random() * 120);
+                awayTeamScore = Math.floor(Math.random() * 120);
+                break;
+            default:
+                homeTeamScore = Math.floor(Math.random() * 5);
+                awayTeamScore = Math.floor(Math.random() * 5);
+                break;
+        }
+    } while (usedQuestions.includes(`${homeTeamScore},${awayTeamScore}`));
+
+    usedQuestions.push(`${homeTeamScore},${awayTeamScore}`);
+
+    homeTeamScoreDisplay.textContent = homeTeamScore;
+    awayTeamScoreDisplay.textContent = awayTeamScore;
+
+    correctAnswer = homeTeamScore + awayTeamScore;
+
+// Add event listener for "Next Question" button click
+document.getElementById('next-question').addEventListener('click', nextQuestionHandler);
+}
+// Modify startGame function to reset game state
 function startGame(level) {
-    // Remove previous event listener before adding a new one
     document.getElementById('next-question').removeEventListener('click', nextQuestionHandler);
 
     const startButton = document.getElementById("start-button");
     startButton.style.display = "none";
-    scoreBoard.style.display = "block"; // Show the scoreboard
-    gameText.textContent = `Add the Home Team and Away Team scores to find the total points scored in the game for ${levels[level].text}.`;
+    scoreBoard.style.display = "block";
+    gameText.textContent = `Add the Home Team and Away Team scores to find the total points scored in the game for ${levels[level].levelText}`;
+    levelElement.textContent = levels[level].levelText;
     correct = 0;
-    feedbackText.textContent = ""; // Clear previous feedback
+    feedbackText.textContent = "";
+    totalQuestions = level * 10; // Set totalQuestions to the starting question index for the level
 
-    // Generate unique random scores for home and away teams based on the level
-    let homeTeamScore, awayTeamScore;
-    switch (level) {
-        case 0:
-            homeTeamScore = Math.floor(Math.random() * 5);
-            awayTeamScore = Math.floor(Math.random() * 5);
-            break;
-        case 1:
-            homeTeamScore = Math.floor(Math.random() * 10);
-            awayTeamScore = Math.floor(Math.random() * 10);
-            break;
-        case 2:
-            homeTeamScore = Math.floor(Math.random() * 50);
-            awayTeamScore = Math.floor(Math.random() * 50);
-            break;
-        case 3:
-            homeTeamScore = Math.floor(Math.random() * 120);
-            awayTeamScore = Math.floor(Math.random() * 120);
-            break;
-        default:
-            homeTeamScore = Math.floor(Math.random() * 5);
-            awayTeamScore = Math.floor(Math.random() * 5);
-            break;
-    }
-
-    // Add this question pair to usedQuestions
-    usedQuestions.push(`${homeTeamScore},${awayTeamScore}`);
-
-    // Update the scoreboard with the new scores
-    homeTeamScoreDisplay.textContent = homeTeamScore;
-    awayTeamScoreDisplay.textContent = awayTeamScore;
-
-    // Calculate the correct answer
-    correctAnswer = homeTeamScore + awayTeamScore;
-
-    // Add event listener for "Next Question" button click
-    document.getElementById('next-question').addEventListener('click', nextQuestionHandler);
+    startNewQuestion(); // Start the first question
 }
 
-// Event listener that starts the game when the "Start" button is clicked
+// Event listener for the "Start" button
 document.getElementById("start-button").addEventListener("click", function() {
-    // Start the game with level 0 (first level)
     startGame(0);
 });
 
-// Define the event handler function for "Next Question" button click
-function nextQuestionHandler(event) {
-    event.preventDefault(); // Prevent default form submission behavior
+// Event listener for the "Next Question" button
+document.getElementById('next-question').addEventListener('click', nextQuestionHandler);
 
-    // Show the answer box and button
-    document.getElementById('answer-box').style.display = 'block';
-    document.getElementById('user-answer').style.display = 'block';
-
-    // Hide the "Next Question" button
-    document.getElementById('next-question').style.display = 'none';
-
-    // Clear the feedback text
-    feedbackText.textContent = "";
-
-    // Increment totalQuestions only when a new question is generated
-    totalQuestions++;
-
-    // Check if all questions have been asked
-    if (totalQuestions === 10) {
-        // Determine the game text based on the number of correct answers
-        if (correct <= 5) {
-            gameText.textContent = "Good try, Rookie. You've got a lot of potential!";
-        } else if (correct <= 7) {
-            gameText.textContent = "Nice work. You're a veteran player now.";
-        } else if (correct <= 9) {
-            gameText.textContent = "You're on fire, All-Star!";
-        } else if (correct === 10) {
-            gameText.textContent = "You are the G.O.A.T!";
-        }
-
-        // Hide the answer box
-        document.getElementById('answer-box').style.display = 'none';
-
-        // Show the trophy image
-        const trophyImage = document.createElement('img');
-        trophyImage.src = 'trophy_image.png'; // Replace 'trophy_image.png' with the path to your trophy image
-        scoreBoard.innerHTML = '';
-        scoreBoard.appendChild(trophyImage);
-
-        // Hide the "Next Question" button
-        document.getElementById('next-question').style.display = 'none';
-
-        // Create "Play Again" button
-        const playAgainButton = document.createElement('button');
-        playAgainButton.textContent = 'Play Again';
-        playAgainButton.addEventListener('click', function() {
-            window.location = 'index.html';
-        });
-
-        // Create "Next Level" button
-        const nextLevelButton = document.createElement('button');
-        nextLevelButton.textContent = 'Next Level';
-        // Add functionality for the "Next Level" button if needed
-
-        // Append buttons to the scoreboard
-        scoreBoard.appendChild(playAgainButton);
-        scoreBoard.appendChild(nextLevelButton);
-    } else {
-        // Start a new game with the next level
-        startGame(totalQuestions % levels.length);
-    }
-}
-
-// Listen for button click
+// Event listener for the "Check Answer" button
 document.getElementById('user-answer').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
     
-    // Get the user's answer from the input field
     var userAnswer = parseInt(document.getElementById('user-input').value);
 
-    // Check if the answer is correct
+    if (isNaN(userAnswer)) {
+        feedbackText.textContent = "Please enter a valid number.";
+        return;
+    }
+
     if (userAnswer === correctAnswer) {
         feedbackText.textContent = "Nice work! The combined number of points scored is " + correctAnswer;
         correct++;
@@ -170,13 +167,11 @@ document.getElementById('user-answer').addEventListener('click', function(event)
         feedbackText.textContent = "Nope... The combined number of points scored is " + correctAnswer;
     }
 
-    // Reset the input field after submission
     document.getElementById('user-input').value = "";
-
-    // Hide the answer box and button
     document.getElementById('answer-box').style.display = 'none';
     document.getElementById('user-answer').style.display = 'none';
-
-    // Show the "Next Question" button
     document.getElementById('next-question').style.display = 'block';
 });
+
+// Hide end game buttons initially
+document.getElementById('end-game-buttons').style.display = 'none';
