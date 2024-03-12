@@ -21,6 +21,7 @@
             <button id="start-button">Let's Go!</button>
         </div>
         <div id="scoreboard" style="display: none;">
+            <p id="level"></p>
             <div id="home-team">
                 <p>Home</p>
                 <p id="home-team-score">0</p>
@@ -31,11 +32,21 @@
             </div>
             <form id="answer-box">
                 <input type="text" id="user-input"> 
-                <button id="user-answer">Submit</button>
+                <button type="submit" id="user-answer">Check Answer</button>
             </form>
             <div id="feedback-text"></div>
         </div>
-    </main>
+        <div id="next-question" style="display: none;">
+            <button type="button">Next Question</button>
+        </div>
+        <div id="trophy-image" style="display: none;">
+            <!-- Image of the trophy -->
+        </div>
+        <div id="end-game-buttons">
+            <button id="play-again" style="display: none;">Play Again</button>
+            <button id="next-level" style="display: none;">Next Level</button>
+        </div>
+    </main>    
     <footer>
         This is the footer
     </footer>
