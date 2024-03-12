@@ -5,41 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Addition Game</title>
+    <title>Total Score</title>
 </head>
 <body>
     <header>
-        <h1>Addition Game</h1>
+        <h1>Total Score</h1>
     </header>
     <nav id="top-nav">
             <link>Main Menu</link>
             <link>Restart Game</link>
     </nav>
     <main>
-        <p>How many combined points did both teams score?</p>
-    <div id="game-play">
-        <button id="start-game">Let's Go!</button>
-    </div>
-    <div id="scoreboard">
-        <div id="home-team">
-            <p>Home</p>
-            <p id="home-team-score">0</p>
+        <p id="game-text">Add the Home Team and Away Team scores to find the total points scored in the game.</p>
+        <div id="game-play">
+            <button id="start-button">Let's Go!</button>
         </div>
-        <div id="away-team">
-            <p>Away</p>
-            <p id="away-team-score">0</p>
+        <div id="scoreboard" style="display: none;">
+            <div id="home-team">
+                <p>Home</p>
+                <p id="home-team-score">0</p>
+            </div>
+            <div id="away-team">
+                <p>Away</p>
+                <p id="away-team-score">0</p>
+            </div>
+            <form id="answer-box">
+                <input type="text" id="user-input"> 
+                <button id="user-answer">Submit</button>
+            </form>
+            <div id="feedback-text"></div>
         </div>
-    </div>
-    <div>
-        <form>
-            <input type="text"> 
-            <button id="user-answer">Submit</button>
-        </form>
-    </div>
-    <script src="./script.js"></script>
     </main>
     <footer>
         This is the footer
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>
