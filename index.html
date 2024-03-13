@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="assets/style.css"/>
     <title>Total Score</title>
 </head>
 <body>
@@ -13,7 +12,7 @@
     </header>
     <nav id="top-nav">
             <link>Main Menu</link>
-            <link>Restart Game</link>
+            <a href="index.html">Restart Game</a>
     </nav>
     <main>
         <p id="game-instructions">Add the Home Team and Away Team scores to find the total points scored in the game.</p>
@@ -30,12 +29,12 @@
                 <p>Away</p>
                 <p id="away-team-score">0</p>
             </div>
-            <form id="answer-box">
-                <input type="text" id="user-input"> 
-                <button type="submit" id="user-answer">Check Answer</button>
-            </form>
-            <div id="feedback-text"></div>
         </div>
+        <form id="answer-box">
+            <input type="text" id="user-input"> 
+            <button type="submit" id="user-answer">Check Answer</button>
+        </form>
+        <div id="feedback-text"></div>
         <div id="next-question" style="display: none;">
             <button type="button">Next Question</button>
         </div>

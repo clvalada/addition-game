@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('assets/digital-7-mono.ttf') format('ttf'),
+       url('assets/digital-7-mono.ttf') format('ttf'); 
+}
+
+body {
+  background-color: gray;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+}
+
+h1 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 75px;
+  margin: 20px auto 0px;
+  padding: 5px;
+  font-family: 'CustomFont', sans-serif;
+}
+
+main {
+  max-width: 500px;
+  background-color: #ffffff;
+  color: black;
+  margin: 30px auto 0px;
+  padding: 10px;
+  border-radius: 10px;
+  align-content: center;
+}
+
+#scoreboard {
+  text-align: center;
+  background-color: darkolivegreen;
+}
+
+#home-team,
+#away-team {
+  display: inline-block;
+  border: 5px solid #ffffff;
+  margin: 20 px;
+}
+
+#home-team-score,
+#away-team-score {
+  background-color: black;
+  color: #ffffff;
+  font-size: larger;
+  padding: 5px 0;
+  font-family: 'CustomFont', sans-serif;
+}
+
+#home-team,
+#away-team,
+#answer-box,
+#feedback-text {
+  margin: 10px;
+}
+
