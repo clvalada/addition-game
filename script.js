@@ -1,42 +1,83 @@
-const levelText = document.getElementById('level-text')
+const levelText = document.getElementById('level-text');
 const startButton = document.getElementById('start-button');
 const scoreboard = document.getElementById('scoreboard');
-const homeTeamScore = document.getElementById('home-team-score');
-const awayTeamScore = document.getElementById('away-team-score');
+const homeTeamScoreDisplay = document.getElementById('home-team-score');
+const awayTeamScoreDisplay = document.getElementById('away-team-score');
 const answerBox = document.getElementById('answer-box');
 const feedbackText = document.getElementById('feedback-text');
 const nextQuestionButton = document.getElementById('next-question');
-const trophyImage = document.getElementById('trophy-image');
-const endGameButtons = document.getElementByID('end-game-buttons');
+const checkAnswerButton = document.getElementById('check-answer'); 
+const endGameButtons = document.getElementById('end-game-buttons');
 const playAgainButton = document.getElementById('play-again');
 
-homeTeamScore = 0
-awayTeamScore = 0
+let homeTeamScore = 0;
+let awayTeamScore = 0;
+let questionCounter = 0;
+let correctAnswers = 0;
 
-//Start Game
-click startButton
-hide startButton
-show scoreboard
-
-function showQuestion (){
-show random number 0-5 for homeTeamScore
-show random number 0-5 for awayTeamScore
+function startGame() {
+    startButton.style.display = 'none';
+    scoreboard.style.display = 'block';
+    showQuestion();
 }
 
-user types numeric answer into answerBox
+function showQuestion() {
+    homeTeamScore = Math.floor(Math.random() * 6);
+    awayTeamScore = Math.floor(Math.random() * 6);
+    homeTeamScoreDisplay.textContent = homeTeamScore;
+    awayTeamScoreDisplay.textContent = awayTeamScore;
+}
 
-if answerBox === sum(homeTeamScore, awayTeamScore) 
-show feedbackText "Correct! The total number of goals scored is" + (homeTeamScore, awayTeamScore)
-else show feedbackText "Nope. The total number of goals scored is" + (homeTeamScore, awayTeamScore)
+function checkAnswer() {
+    const userAnswer = parseInt(answerBox.value);
+    const totalGoals = homeTeamScore + awayTeamScore;
 
-show nextQuestionButton onClick repeat showQuestion()
+    if (userAnswer === totalGoals) {
+        feedbackText.textContent = "Correct! The total number of goals scored is " + totalGoals;
+        correctAnswers++;
+    } else {
+        feedbackText.textContent = "Nope. The total number of goals scored is " + totalGoals;
+    }
 
-Do this 10 times
+    questionCounter++;
 
-//end game
-after 10 questions
-if user answers more than 6 questions correctly
-show "Nice work, Rookie. You can move to the next level" in feedbackText
-and show endGameButtons
-else show "Good try, Rookie. You need to get at least " 
-and show playAgainButton
+    if (questionCounter === 10) {
+        endGame();
+    } else {
+        nextQuestionButton.style.display = 'block'; // Display the next question button
+        feedbackText.style.display = 'block'; // Display the feedback text
+
+        // Reset input box for the next question
+        answerBox.value = '';
+    }
+}
+
+function endGame() {
+    answerBox.disabled = true;
+    nextQuestionButton.disabled = true;
+
+    if (correctAnswers > 6) {
+        feedbackText.textContent = "Nice work, Rookie. You can move to the next level";
+        endGameButtons.style.display = 'block';
+    } else {
+        feedbackText.textContent = "Good try, Rookie. You need to get at least 7 questions correctly";
+        playAgainButton.style.display = 'block';
+    }
+
+    questionCounter = 0;
+    correctAnswers = 0;
+}
+
+startButton.addEventListener('click', startGame);
+nextQuestionButton.addEventListener('click', function() {
+    showQuestion();
+    answerBox.value = '';
+    nextQuestionButton.style.display = 'none'; 
+    feedbackText.style.display = 'none'; 
+});
+checkAnswerButton.addEventListener('click', checkAnswer); 
+answerBox.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        checkAnswer();
+    }
+});
