@@ -3,6 +3,7 @@ const startButton = document.getElementById('start-button');
 const scoreboard = document.getElementById('scoreboard');
 const homeTeamScoreDisplay = document.getElementById('home-team-score');
 const awayTeamScoreDisplay = document.getElementById('away-team-score');
+const userInputBox = document.getElementById('user-input');
 const answerBox = document.getElementById('answer-box');
 const feedbackText = document.getElementById('feedback-text');
 const nextQuestionButton = document.getElementById('next-question');
@@ -15,9 +16,16 @@ let awayTeamScore = 0;
 let questionCounter = 0;
 let correctAnswers = 0;
 
+function removeGameEventListeners() {
+    nextQuestionButton.removeEventListener('click', showNextQuestion);
+    checkAnswerButton.removeEventListener('click', checkAnswer);
+    answerBox.removeEventListener('keypress', handleKeyPress);
+}
+
 function startGame() {
     startButton.style.display = 'none';
     scoreboard.style.display = 'block';
+    answerBox.style.display = 'block';
     showQuestion();
 }
 
@@ -28,9 +36,13 @@ function showQuestion() {
     awayTeamScoreDisplay.textContent = awayTeamScore;
 }
 
-function checkAnswer() {
-    const userAnswer = parseInt(answerBox.value);
+function checkAnswer(event) {
+    event.preventDefault();
+    const userAnswer = parseInt(userInputBox.value);
     const totalGoals = homeTeamScore + awayTeamScore;
+
+    console.log("User Answer:", userAnswer);
+    console.log("Total Goals:", totalGoals);
 
     if (userAnswer === totalGoals) {
         feedbackText.textContent = "Correct! The total number of goals scored is " + totalGoals;
@@ -44,15 +56,15 @@ function checkAnswer() {
     if (questionCounter === 10) {
         endGame();
     } else {
-        nextQuestionButton.style.display = 'block'; // Display the next question button
-        feedbackText.style.display = 'block'; // Display the feedback text
+        nextQuestionButton.style.display = 'block'; 
+        feedbackText.style.display = 'block';
 
-        // Reset input box for the next question
-        answerBox.value = '';
+        userInputBox.value = '';
     }
 }
 
 function endGame() {
+    removeEventListeners();
     answerBox.disabled = true;
     nextQuestionButton.disabled = true;
 
