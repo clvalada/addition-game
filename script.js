@@ -17,7 +17,7 @@ let questionCounter = 0;
 let correctAnswers = 0;
 
 function removeGameEventListeners() {
-    nextQuestionButton.removeEventListener('click', showNextQuestion);
+    nextQuestionButton.removeEventListener('click', showQuestion);
     checkAnswerButton.removeEventListener('click', checkAnswer);
     answerBox.removeEventListener('keypress', handleKeyPress);
 }
@@ -64,7 +64,7 @@ function checkAnswer(event) {
 }
 
 function endGame() {
-    removeEventListeners();
+    removeGameEventListeners();
     answerBox.disabled = true;
     nextQuestionButton.disabled = true;
 
