@@ -3,29 +3,27 @@ const startButton = document.getElementById('start-button');
 const scoreboard = document.getElementById('scoreboard');
 const homeTeamScoreDisplay = document.getElementById('home-team-score');
 const awayTeamScoreDisplay = document.getElementById('away-team-score');
-const userInputBox = document.getElementById('user-input');
+const userInputBox = document.getElementById('textInput'); 
 const answerBox = document.getElementById('answer-box');
 const feedbackText = document.getElementById('feedback-text');
-const nextQuestionButton = document.getElementById('next-question');
-const checkAnswerButton = document.getElementById('check-answer'); 
+const nextQuestion = document.getElementById('next-question');
+const nextQuestionButton = document.getElementById('next-question-button');
+const checkAnswerButton = document.getElementById('check-answer-button');
 const trophyImage = document.getElementById('trophy-image');
 const endGameButtons = document.getElementById('end-game-buttons');
 const playAgainButton = document.getElementById('play-again');
+const nextLevelButton = document.getElementById('next-level');
 
 let homeTeamScore = 0;
 let awayTeamScore = 0;
 let questionCounter = 0;
 let correctAnswers = 0;
 
-function removeGameEventListeners() {
-    nextQuestionButton.removeEventListener('click', showQuestion);
-    checkAnswerButton.removeEventListener('click', checkAnswer);
-    answerBox.removeEventListener('keypress', handleKeyPress);
-}
-
 function startGame() {
     startButton.style.display = 'none';
     scoreboard.style.display = 'block';
+    answerBox.style.display = 'block';
+    feedbackText.style.display = 'block';
     answerBox.style.display = 'block';
     showQuestion();
 }
@@ -42,8 +40,10 @@ function checkAnswer(event) {
     const userAnswer = parseInt(userInputBox.value);
     const totalGoals = homeTeamScore + awayTeamScore;
 
-    console.log("User Answer:", userAnswer);
-    console.log("Total Goals:", totalGoals);
+    if (isNaN(userAnswer)) {
+        feedbackText.textContent = "Please enter a valid number.";
+        return;
+    }
 
     if (userAnswer === totalGoals) {
         feedbackText.textContent = "Correct! The total number of goals scored is " + totalGoals;
@@ -65,21 +65,20 @@ function checkAnswer(event) {
 }
 
 function endGame() {
-    //removeGameEventListeners();
     answerBox.style.display = 'none';
-    nextQuestionButton.style.display = 'none';
+    nextQuestion.style.display = 'none';
     scoreboard.style.display = 'none';
+    feedbackText.style.display = 'block';
     trophyImage.style.display = 'block';
 
     if (correctAnswers > 6) {
         feedbackText.textContent = "Nice work, Rookie. You can move to the next level";
-        endGameButtons.style.display = 'block';
+        playAgainButton.style.display = 'block';
+        nextLevelButton.style.display = 'block'; 
     } else {
         feedbackText.textContent = "Good try, Rookie. You need to get at least 7 questions correctly";
         playAgainButton.style.display = 'block';
     }
-
-    checkAnswerButton.addEventListener('click', checkAnswer); 
 
     questionCounter = 0;
     correctAnswers = 0;
@@ -88,12 +87,12 @@ function endGame() {
 startButton.addEventListener('click', startGame);
 nextQuestionButton.addEventListener('click', function() {
     showQuestion();
-    answerBox.value = '';
+    userInputBox.value = '';
     nextQuestionButton.style.display = 'none'; 
     feedbackText.style.display = 'none'; 
 });
 checkAnswerButton.addEventListener('click', checkAnswer); 
-answerBox.addEventListener('keypress', function(e) {
+userInputBox.addEventListener('keypress', function(e) { 
     if (e.key === 'Enter') {
         checkAnswer(e);
     }

@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'CustomFont';
+  font-family: 'digital-7-mono';
   src: url('digital-7-mono.ttf') format('ttf'),
        url('digital-7-mono.ttf') format('ttf'); 
 }
@@ -21,7 +21,7 @@ h1 {
   font-size: 75px;
   margin: 20px auto 0px;
   padding: 5px;
-  font-family: 'CustomFont', sans-serif;
+  font: 'digital-7-mono', sans-serif;
 }
 
 main {
@@ -51,7 +51,7 @@ main {
   background-color: black;
   color: #ffffff;
   font-size: 72px;
-  font-family: 'CustomFont', sans-serif;
+  font: 'digital-7-mono', sans-serif;
   border: 5px solid #ffffff;
 }
 
