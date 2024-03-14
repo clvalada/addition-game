@@ -8,6 +8,7 @@ const answerBox = document.getElementById('answer-box');
 const feedbackText = document.getElementById('feedback-text');
 const nextQuestionButton = document.getElementById('next-question');
 const checkAnswerButton = document.getElementById('check-answer'); 
+const trophyImage = document.getElementById('trophy-image');
 const endGameButtons = document.getElementById('end-game-buttons');
 const playAgainButton = document.getElementById('play-again');
 
@@ -64,9 +65,11 @@ function checkAnswer(event) {
 }
 
 function endGame() {
-    removeGameEventListeners();
-    answerBox.disabled = true;
-    nextQuestionButton.disabled = true;
+    //removeGameEventListeners();
+    answerBox.style.display = 'none';
+    nextQuestionButton.style.display = 'none';
+    scoreboard.style.display = 'none';
+    trophyImage.style.display = 'block';
 
     if (correctAnswers > 6) {
         feedbackText.textContent = "Nice work, Rookie. You can move to the next level";
@@ -75,6 +78,8 @@ function endGame() {
         feedbackText.textContent = "Good try, Rookie. You need to get at least 7 questions correctly";
         playAgainButton.style.display = 'block';
     }
+
+    checkAnswerButton.addEventListener('click', checkAnswer); 
 
     questionCounter = 0;
     correctAnswers = 0;
@@ -90,6 +95,6 @@ nextQuestionButton.addEventListener('click', function() {
 checkAnswerButton.addEventListener('click', checkAnswer); 
 answerBox.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
-        checkAnswer();
+        checkAnswer(e);
     }
 });

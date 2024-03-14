@@ -28,8 +28,8 @@ main {
   max-width: 500px;
   background-color: #ffffff;
   color: black;
-  margin: 30px auto 0px;
-  padding: 10px;
+  margin: 15px auto 0px;
+  padding: 5px;
   border-radius: 10px;
   align-content: center;
 }
@@ -37,28 +37,32 @@ main {
 #scoreboard {
   text-align: center;
   background-color: darkolivegreen;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #home-team,
 #away-team {
   display: inline-block;
-  border: 5px solid #ffffff;
-  margin: 20 px;
+  
 }
 
 #home-team-score,
 #away-team-score {
   background-color: black;
   color: #ffffff;
-  font-size: larger;
-  padding: 5px 0;
+  font-size: 72px;
   font-family: 'CustomFont', sans-serif;
+  border: 5px solid #ffffff;
 }
 
 #home-team,
 #away-team,
 #answer-box,
 #feedback-text {
-  margin: 10px;
+  margin: 1px;
 }
 
+#trophy-image {
+  width: 100%;
+  height: auto;
+}
