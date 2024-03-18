@@ -15,12 +15,11 @@ body {
 }
 
 h1 {
+  font: 100px 'digital-7', Arial;
   color: #ffffff;
   text-align: center;
-  font-size: 100px;
-  margin: 20px auto 0px;
+  margin: 10px auto 0px;
   padding: 5px;
-  font-family: 'digital-7';
   text-shadow: 1px 1px 2px black;
 }
 
@@ -102,9 +101,8 @@ button:hover {
 #home-team-score,
 #away-team-score {
   background-color: black;
+  font: 150px 'digital-7', Arial;
   color: #ffffff;
-  font-size: 150px;
-  font-family: 'digital-7', Arial;
   border: 5px solid #ffffff;
   padding: 14px;
   padding-bottom: 20px;
@@ -134,4 +132,10 @@ button:hover {
   display: flex;
   text-align: center;
   justify-content: space-evenly;
+  font-size: 30px;
+}
+
+#next-question-button{
+  display: block;
+  margin:10px auto;
 }
