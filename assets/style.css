@@ -92,6 +92,36 @@ button {
 
 #trophy-image img,
 #try-again-image img {
-  display: block; 
-  margin: 0 auto; 
+    max-width: 100% !important;
+    height: auto;
+    width: auto;
+}
+
+#next-question {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+#end-game-buttons {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.circle-container {
+  margin-top: 20px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.red {
+  background-color: red;
 }
