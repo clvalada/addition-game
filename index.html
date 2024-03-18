@@ -13,21 +13,24 @@
     <nav id="top-nav">
     </nav>
     <main>
-        <p id="game-instructions">Add the Home Team and Away Team scores to find the total points scored in the game.</p>
-        <p id="level-text">Level 1: Soccer</p>
+        <p id="game-instructions">Add the Home Team and Away Team scores to find the total points scored in the game. Answer 7 questions correctly and move to the next level.</p>
+        <h3 id="level-text">Level 1: Soccer</h3>
         <div id="game-play">
             <button id="start-button">Let's Go!</button>
         </div>
         <div id="scoreboard" style="display: none;">
-            <div id="home-team">
-                <p>HOME</p>
-                <p id="home-team-score">0</p>
+            <div class="team-score-container">
+                <div id="home-team">
+                    <p>HOME</p>
+                    <p id="home-team-score">0</p>
+                </div>
             </div>
-            <div id="away-team">
-                <p>AWAY</p>
-                <p id="away-team-score">0</p>
+            <div class="team-score-container">
+                <div id="away-team">
+                    <p>AWAY</p>
+                    <p id="away-team-score">0</p>
+                </div>
             </div>
-            <div class="circle-container" id="circleContainer"></div>
         </div>
         <div id="feedback-text"></div>
         <div id="answer-box" style="display: none;">
