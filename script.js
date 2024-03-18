@@ -47,10 +47,12 @@ function checkAnswer(event) {
   }
 
   if (userAnswer === totalGoals) {
+    answerBox.style.display = 'none'
     feedbackText.textContent =
       'Correct! The total number of goals scored is ' + totalGoals
     correctAnswers++
   } else {
+    answerBox.style.display = 'none'
     feedbackText.textContent =
       'Nope. The total number of goals scored is ' + totalGoals
   }
@@ -99,6 +101,7 @@ nextQuestionButton.addEventListener('click', function () {
   nextQuestionButton.style.display = 'none'
   nextQuestion.style.display = 'none'
   feedbackText.style.display = 'none'
+  answerBox.style.display = 'block'
 })
 checkAnswerButton.addEventListener('click', checkAnswer)
 userInputBox.addEventListener('keypress', function (e) {
