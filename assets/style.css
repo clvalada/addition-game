@@ -1,68 +1,97 @@
-@font-face {
-  font-family: 'digital-7-mono';
-  src: url('digital-7-mono.ttf') format('ttf'),
-       url('digital-7-mono.ttf') format('ttf'); 
-}
+@import url('assets/digital-7-mono.ttf');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 body {
   color: #ffffff;
-  padding: 10px;
+  padding: 1px;
   text-align: center;
   font-size: 24px;
   background-image: url('background-soccer.jpg');
   /*Image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1867992">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1867992">Pixabay</a>*/
-  background-size: cover;
+  background-size: 100% auto;
   background-repeat: no-repeat;
+  font-family: 'Noto Sans Display', Arial, Helvetica, sans-serif;
 }
 
 h1 {
   color: #ffffff;
   text-align: center;
-  font-size: 75px;
+  font-size: 100px;
   margin: 20px auto 0px;
   padding: 5px;
-  font: 'digital-7-mono', sans-serif;
+  font-family: 'digital-7';
+  text-shadow: 1px 1px 2px black;
 }
 
 main {
-  max-width: 500px;
+  max-width: 600px;
   background-color: #ffffff;
   color: black;
   margin: 15px auto 0px;
   padding: 5px;
   border-radius: 10px;
   align-content: center;
+  box-shadow: 1px 1px 2px black;
+
+}
+
+button {
+  background-color: #4681f4;
+  color: #ffffff;
+  box-shadow: 1px 1px 2px black;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 15px;
+  margin: 4px 2px;
 }
 
 #scoreboard {
+  display: flex;
   text-align: center;
   background-color: darkolivegreen;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 1 4px 8px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: space-evenly;
+  padding: 0;
 }
 
 #home-team,
 #away-team {
   display: inline-block;
-  
+  margin: 0;
+  padding: 5px;
 }
 
 #home-team-score,
 #away-team-score {
   background-color: black;
   color: #ffffff;
-  font-size: 72px;
-  font: 'digital-7-mono', sans-serif;
+  font-size: 100px;
+  font-family: 'digital-7', Arial;
   border: 5px solid #ffffff;
+  padding: 0px;
 }
 
-#home-team,
-#away-team,
 #answer-box,
 #feedback-text {
   margin: 1px;
 }
 
-#trophy-image {
-  width: 100%;
+#trophy-image,
+#try-again-image {
+  max-width: 100%;
   height: auto;
+  text-align: center;
+}
+
+#trophy-image img,
+#try-again-image img {
+  display: block; 
+  margin: 0 auto; 
 }
