@@ -30,8 +30,8 @@ function startGame() {
 }
 
 function showQuestion() {
-  homeTeamScore = Math.floor(Math.random() * 16)
-  awayTeamScore = Math.floor(Math.random() * 16)
+  homeTeamScore = Math.floor(Math.random() * 51)
+  awayTeamScore = Math.floor(Math.random() * 51)
   homeTeamScoreDisplay.textContent = homeTeamScore
   awayTeamScoreDisplay.textContent = awayTeamScore
 }
@@ -49,12 +49,12 @@ function checkAnswer(event) {
   if (userAnswer === totalGoals) {
     answerBox.style.display = 'none'
     feedbackText.textContent =
-      'Correct! The total number of runs scored is ' + totalGoals
+      'Correct! The total number of points scored is ' + totalGoals
     correctAnswers++
   } else {
     answerBox.style.display = 'none'
     feedbackText.textContent =
-      'Nope. The total number of runs scored is ' + totalGoals
+      'Nope. The total number of points scored is ' + totalGoals
   }
 
   questionCounter++
