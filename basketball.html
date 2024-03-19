@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/football-styles.css"/>
+    <title>Total Score</title>
+</head>
+<body>
+    <header>
+        <h1>Total Score</h1>
+    </header>
+    <nav id="top-nav">
+    </nav>
+    <main>
+        <p id="game-instructions">Add the Home Team and Away Team scores to find the total points scored. Answer 7 questions correctly to advance to the next level.</p>
+        <h3 id="level-text">Level 4: Basketball</h3>
+        <div id="game-play">
+            <button id="start-button">Let's Go!</button>
+        </div>
+        <div id="scoreboard" style="display: none;">
+            <div class="team-score-container">
+                <div id="home-team">
+                    <p>HOME</p>
+                    <p id="home-team-score">0</p>
+                </div>
+            </div>
+            <div class="team-score-container">
+                <div id="away-team">
+                    <p>AWAY</p>
+                    <p id="away-team-score">0</p>
+                </div>
+            </div>
+        </div>
+        <div id="feedback-text"></div>
+        <div id="answer-box" style="display: none;">
+            <label for="textInput">Type Your Answer Here</label>
+            <input type="text" id="textInput">
+            <button id="check-answer-button">Submit Answer</button>
+        </div>
+        <div id="next-question" style="display: none">
+            <button id="next-question-button">Next Question ></button>
+        </div>
+        <div id="trophy-image" style="display: none;">
+            <img src="assets/trophy.jpg" alt="Photo of a Gold Trophy"/>
+            <!--Image by <a href="https://pixabay.com/users/quincecreative-1031690/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3470491">3D Animation Production Company</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3470491">Pixabay</a>-->
+        </div>
+        <div id="try-again-image" style="display: none;">
+            <img src="assets/try-again-soccer.jpg" alt="Photo of a sad soccer player"/>
+            <!--Image by <a href="https://pixabay.com/users/planet_fox-4691618/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6678725">Alexander Fox | PlaNet Fox</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6678725">Pixabay</a>-->
+        </div>
+        <div id="end-game-buttons">
+            <button id="play-again" style="display: none;">Play Again</button>
+            <button id="next-level" style="display: none;">Next Level</button>
+        </div>
+    </main>    
+    <footer>
+       <!--This is the footer--> 
+    </footer>
+    <script src="./baseball-script.js"></script>
+</body>
+</html>

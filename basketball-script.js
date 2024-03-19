@@ -30,8 +30,8 @@ function startGame() {
 }
 
 function showQuestion() {
-  homeTeamScore = Math.floor(Math.random() * 16)
-  awayTeamScore = Math.floor(Math.random() * 16)
+  homeTeamScore = Math.floor(Math.random() * 121)
+  awayTeamScore = Math.floor(Math.random() * 121)
   homeTeamScoreDisplay.textContent = homeTeamScore
   awayTeamScoreDisplay.textContent = awayTeamScore
 }
@@ -49,12 +49,12 @@ function checkAnswer(event) {
   if (userAnswer === totalGoals) {
     answerBox.style.display = 'none'
     feedbackText.textContent =
-      'Correct! The total number of runs scored is ' + totalGoals
+      'Correct! The total number of points scored is ' + totalGoals
     correctAnswers++
   } else {
     answerBox.style.display = 'none'
     feedbackText.textContent =
-      'Nope. The total number of runs scored is ' + totalGoals
+      'Nope. The total number of points scored is ' + totalGoals
   }
 
   questionCounter++
@@ -79,13 +79,13 @@ function endGame() {
 
   if (correctAnswers > 6) {
     feedbackText.textContent =
-      'Awesome. You\'\re a Pro now!'
+      'Great job! You are the G.O.A.T.'
     playAgainButton.style.display = 'block'
     nextLevelButton.style.display = 'block'
     trophyImage.style.display = 'block'
   } else {
     feedbackText.textContent =
-      'Good try, but you need to answer at least 7 questions correctly to advance to the next level.'
+      'Nice try, but you need to answer at least 7 questions correctly to advance to the next level.'
     playAgainButton.style.display = 'block'
     tryAgainImage.style.display = 'block'
   }

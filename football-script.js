@@ -79,13 +79,13 @@ function endGame() {
 
   if (correctAnswers > 6) {
     feedbackText.textContent =
-      'Nice work, Rookie. You can advance to the next level.'
+      'Great work, All-star! You can advance to the next level.'
     playAgainButton.style.display = 'block'
     nextLevelButton.style.display = 'block'
     trophyImage.style.display = 'block'
   } else {
     feedbackText.textContent =
-      'Good try, Rookie. You need to answer at least 7 questions correctly to advance to the next level.'
+      'Keep trying. You\'\ll get there soon. You need to answer at least 7 questions correctly to advance to the next level.'
     playAgainButton.style.display = 'block'
     tryAgainImage.style.display = 'block'
   }
