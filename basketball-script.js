@@ -30,11 +30,12 @@ function startGame() {
 }
 
 function showQuestion() {
-  homeTeamScore = Math.floor(Math.random() * 121)
-  awayTeamScore = Math.floor(Math.random() * 121)
-  homeTeamScoreDisplay.textContent = homeTeamScore
-  awayTeamScoreDisplay.textContent = awayTeamScore
+  homeTeamScore = Math.floor(Math.random() * (120 - 60 + 1)) + 60;
+  awayTeamScore = Math.floor(Math.random() * (120 - 60 + 1)) + 60;
+  homeTeamScoreDisplay.textContent = homeTeamScore;
+  awayTeamScoreDisplay.textContent = awayTeamScore;
 }
+  
 
 function checkAnswer(event) {
   event.preventDefault()
