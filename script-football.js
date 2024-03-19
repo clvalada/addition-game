@@ -85,7 +85,7 @@ function endGame() {
     trophyImage.style.display = 'block'
   } else {
     feedbackText.textContent =
-      'Keep trying. You\'\ll get there soon. You need to answer at least 7 questions correctly to advance to the next level.'
+      'Keep trying!  You need to answer at least 7 questions correctly to advance to the next level.'
     playAgainButton.style.display = 'block'
     tryAgainImage.style.display = 'block'
   }

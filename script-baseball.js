@@ -79,7 +79,7 @@ function endGame() {
 
   if (correctAnswers > 6) {
     feedbackText.textContent =
-      'Awesome. You\'\re a Pro now!'
+      'Awesome. You are a Pro now!'
     playAgainButton.style.display = 'block'
     nextLevelButton.style.display = 'block'
     trophyImage.style.display = 'block'
