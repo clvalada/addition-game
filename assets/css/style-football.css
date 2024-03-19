@@ -7,7 +7,7 @@ body {
   padding: 1px;
   text-align: center;
   font-size: 24px;
-  background-image: url('/assets/images/backgrounds/background-football.jpg');
+  background-image: url('./assets/images/backgrounds/background-football.jpg');
   /*Image by <a href="https://pixabay.com/users/simonar-29780/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=107387">Simona Robová</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=107387">Pixabay</a>*/
   background-size: 100% auto;
   background-repeat: no-repeat;
