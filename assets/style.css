@@ -14,6 +14,11 @@ body {
   font-family: 'Noto Sans Display', Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 h1 {
   font: 100px 'digital-7', Arial;
   color: #ffffff;
