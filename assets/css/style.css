@@ -1,5 +1,16 @@
-@import url('digital-7-mono.ttf');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: 'Digital-7';
+  src: url('fonts/digital7mono.eot');
+  src: url('fonts/digital7mono.eot?#iefix') format('embedded-opentype'),
+       url('fonts/digital7mono.woff2') format('woff2'),
+       url('fonts/digital7mono.woff') format('woff'),
+       url('fonts/digital7mono.ttf') format('truetype'),
+       url('fonts/digital7mono.svg#digital7mono_2regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 body {
