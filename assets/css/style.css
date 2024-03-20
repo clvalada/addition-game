@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: 'Digital-7';
-  src: url('fonts/digital7mono.eot');
-  src: url('fonts/digital7mono.eot?#iefix') format('embedded-opentype'),
-       url('fonts/digital7mono.woff2') format('woff2'),
-       url('fonts/digital7mono.woff') format('woff'),
-       url('fonts/digital7mono.ttf') format('truetype'),
-       url('fonts/digital7mono.svg#digital7mono_2regular') format('svg');
+  src: url('/fonts/digital7mono.eot');
+  src: url('/fonts/digital7mono.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/digital7mono.woff2') format('woff2'),
+       url('/fonts/digital7mono.woff') format('woff'),
+       url('/fonts/digital7mono.ttf') format('truetype'),
+       url('/fonts/digital7mono.svg#digital7mono_2regular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -27,7 +27,7 @@ a {
 }
 
 h1 {
-  font: 100px 'digital-7', Arial;
+  font: 100px 'Digital-7', Arial;
   color: #ffffff;
   text-align: center;
   margin: 10px auto 0px;
@@ -113,7 +113,7 @@ button:hover {
 #home-team-score,
 #away-team-score {
   background-color: black;
-  font: 150px 'digital-7', Arial;
+  font: 150px 'Digital-7', Arial;
   color: #ffffff;
   border: 5px solid #ffffff;
   padding: 14px;
