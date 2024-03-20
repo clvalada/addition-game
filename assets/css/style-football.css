@@ -1,3 +1,4 @@
+@import url('digital-7-mono.ttf');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
 
 
@@ -6,6 +7,7 @@ body {
   padding: 1px;
   text-align: center;
   font-size: 24px;
+  background-image: url('/backgrounds/background-football.jpg');
   /*Image by <a href="https://pixabay.com/users/simonar-29780/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=107387">Simona Robová</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=107387">Pixabay</a>*/
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -13,7 +15,7 @@ body {
 }
 
 h1 {
-  font: 100px 'digital-7', Arial;
+  font: 100px 'digital-7-mono', Arial;
   color: #ffffff;
   text-align: center;
   margin: 10px auto 0px;
@@ -104,7 +106,7 @@ button:hover {
 #home-team-score,
 #away-team-score {
   background-color: black;
-  font: 150px 'digital-7', Arial;
+  font: 150px 'digital-7-mono', Arial;
   color: #ffffff;
   border: 5px solid #ffffff;
   padding: 14px;

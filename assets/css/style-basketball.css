@@ -1,3 +1,4 @@
+@import url('assets/digital-7-mono.ttf');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
 
 
@@ -6,6 +7,7 @@ body {
   padding: 1px;
   text-align: center;
   font-size: 24px;
+  background-image: url('/backgrounds/background-basketball.jpg');
   /*Image by <a href="https://pixabay.com/users/stevothedevo-431520/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=440057">Steve Tulevski</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=440057">Pixabay</a>*/
   background-size: 100% auto;
   background-repeat: no-repeat;
