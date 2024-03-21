@@ -196,3 +196,15 @@ button:hover {
   display: block;
   margin: 10px auto;
 }
+
+@media (max-width: 768px){
+  h1 {font: 80px 'Digital-7', Arial;
+  }
+
+  #home-team-score,
+  #away-team-score {
+  font: 100px 'Digital-7', Arial;
+  padding: 7px;
+  }
+
+}
