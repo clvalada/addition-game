@@ -200,4 +200,9 @@ button:hover {
     justify-content: space-evenly;
   }
 
+  .progress-bar-item {
+    flex-shrink: initial;
+    width: 28px;
+    height: 28px;
+  }
 }
