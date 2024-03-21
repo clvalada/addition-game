@@ -201,10 +201,19 @@ button:hover {
   h1 {font: 80px 'Digital-7', Arial;
   }
 
+  #scoreboard {
+  font-size: 35px;
+  }
+  
   #home-team-score,
   #away-team-score {
   font: 100px 'Digital-7', Arial;
   padding: 7px;
   }
+
+  #start-button,
+  #next-question-button {
+  font-size: 20px;
+}
 
 }
