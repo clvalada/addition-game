@@ -1,6 +1,7 @@
 const levelText = document.getElementById('level-text')
 const startButton = document.getElementById('start-button')
 const scoreboard = document.getElementById('scoreboard')
+const progressBar = document.getElementById('progress-bar')
 const homeTeamScoreDisplay = document.getElementById('home-team-score')
 const awayTeamScoreDisplay = document.getElementById('away-team-score')
 const userInputBox = document.getElementById('textInput')
@@ -20,6 +21,12 @@ let awayTeamScore = 0
 let questionCounter = 0
 let correctAnswers = 0
 
+function initProgressBar() {
+  for (let i = 0; i < 10; i++) {
+    progressBar.innerHTML += `<div class="progress-bar-item"></div>`
+  }
+}
+
 function startGame() {
   startButton.style.display = 'none'
   scoreboard.style.display = 'block'
@@ -27,6 +34,7 @@ function startGame() {
   feedbackText.style.display = 'block'
   answerBox.style.display = 'block'
   showQuestion()
+  initProgressBar()
 }
 
 function showQuestion() {
@@ -51,10 +59,16 @@ function checkAnswer(event) {
     feedbackText.textContent =
       'Correct! The total number of goals scored is ' + totalGoals
     correctAnswers++
+    document
+      .querySelector(`.progress-bar-item:nth-child(${questionCounter + 1})`)
+      .classList.add('correct')
   } else {
     answerBox.style.display = 'none'
     feedbackText.textContent =
       'Nope. The total number of goals scored is ' + totalGoals
+    document
+      .querySelector(`.progress-bar-item:nth-child(${questionCounter + 1})`)
+      .classList.add('incorrect')
   }
 
   questionCounter++

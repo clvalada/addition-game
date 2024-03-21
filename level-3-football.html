@@ -1,63 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Total Score</title>
-</head>
-<body style="background-image: url('./backgrounds/background-football.jpg'); background-size: 100% auto; background-repeat: no-repeat;"><!--This line changes for each level-->
+  </head>
+  <body
+    style="
+      background-image: url('./backgrounds/background-football.jpg');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    "
+  >
     <!--Image by <a href="https://pixabay.com/users/simonar-29780/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=107387">Simona Robová</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=107387">Pixabay</a>-->
     <header>
-        <h1>Total Score</h1>
+      <h1>Total Score</h1>
     </header>
-    <nav id="top-nav">
-    </nav>
+    <nav id="top-nav"></nav>
     <main>
-        <p id="game-instructions">Add the Home Team and Away Team scores to find the total points scored. Answer 7 questions correctly to advance to the next level.</p><!--This line changes for each level-->
-        <h3 id="level-text">Level 3: Football</h3><!--This line changes for each level-->
-        <div id="game-play">
-            <button id="start-button">Down, Set, Hike!</button><!--This line changes for each level-->
-        </div>
-        <div id="scoreboard" style="display: none;">
-            <div class="team-score-container">
-                <div id="home-team">
-                    <p>HOME</p>
-                    <p id="home-team-score">0</p>
-                </div>
+      <p id="game-instructions">
+        Add the Home Team and Away Team scores to find the total points scored.
+        Answer 7 questions correctly to advance to the next level.
+      </p>
+      <!--This line changes for each level-->
+      <h3 id="level-text">Level 3: Football</h3>
+      <!--This line changes for each level-->
+      <div id="game-play">
+        <button id="start-button">Down, Set, Hike!</button
+        ><!--This line changes for each level-->
+      </div>
+      <div id="scoreboard" style="display: none">
+        <div class="team-score-container">
+          <div id="home-team">
+            <p>HOME</p>
+            <div class="home-team-score-wrapper">
+              <p id="home-team-score">0</p>
             </div>
-            <div class="team-score-container">
-                <div id="away-team">
-                    <p>AWAY</p>
-                    <p id="away-team-score">0</p>
-                </div>
+          </div>
+        </div>
+        <div class="team-score-container">
+          <div id="away-team">
+            <p>AWAY</p>
+            <div class="away-team-score-wrapper">
+              <p id="away-team-score">0</p>
             </div>
+          </div>
         </div>
-        <div id="feedback-text"></div>
-        <div id="answer-box" style="display: none;">
-            <label for="textInput">Type Your Answer Here</label>
-            <input type="text" id="textInput">
-            <button id="check-answer-button">Submit Answer</button>
-        </div>
-        <div id="next-question" style="display: none">
-            <button id="next-question-button">Next Question ></button>
-        </div>
-        <div id="trophy-image" style="display: none;">
-            <img src="./assets/images/trophies/trophy-football.jpg" alt="Photo of a Football Trophy"/><!--This line changes for each level-->
-            <!--Image by <a href="https://pixabay.com/users/quincecreative-1031690/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3470491">3D Animation Production Company</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3470491">Pixabay</a>-->
-        </div>
-        <div id="try-again-image" style="display: none;">
-            <img src="./assets/images/try-again/try-again-football.jpg" alt="Photo of a football player falling"/><!--This line changes for each level-->
-            <!--Image by <a href="https://pixabay.com/users/keithjj-2328014/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1453700">Keith Johnston</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1453700">Pixabay</a>-->
-        </div>
-        <div id="end-game-buttons">
-            <a href="level-3-football.html"><button id="play-again" style="display: none;">Play Again</button></a><!--This line changes for each level-->
-            <a href="level-4-basketball.html"><button id="next-level" style="display: none;">Next Level</button></a><!--This line changes for each level-->
-        </div>
-    </main>    
+        <div id="progress-bar"></div>
+        <!--Add Progress Bar Here-->
+      </div>
+      <div id="feedback-text"></div>
+      <div id="answer-box" style="display: none">
+        <label for="textInput">Type Your Answer Here</label>
+        <input type="text" id="textInput" />
+        <button id="check-answer-button">Submit Answer</button>
+      </div>
+      <div id="next-question" style="display: none">
+        <button id="next-question-button">Next Question ></button>
+      </div>
+      <div id="trophy-image" style="display: none">
+        <img
+          src="./assets/images/trophies/trophy-football.jpg"
+          alt="Photo of a Football Trophy"
+        /><!--This line changes for each level-->
+        <!--Image by <a href="https://pixabay.com/users/quincecreative-1031690/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3470491">3D Animation Production Company</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3470491">Pixabay</a>-->
+      </div>
+      <div id="try-again-image" style="display: none">
+        <img
+          src="./assets/images/try-again/try-again-football.jpg"
+          alt="Photo of a football player falling"
+        /><!--This line changes for each level-->
+        <!--Image by <a href="https://pixabay.com/users/keithjj-2328014/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1453700">Keith Johnston</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1453700">Pixabay</a>-->
+      </div>
+      <div id="end-game-buttons">
+        <a href="level-3-football.html"
+          ><button id="play-again" style="display: none">Play Again</button></a
+        ><!--This line changes for each level-->
+        <a href="level-4-basketball.html"
+          ><button id="next-level" style="display: none">Next Level</button></a
+        ><!--This line changes for each level-->
+      </div>
+    </main>
     <footer>
-       <!--This is the footer--> 
+      <!--This is the footer-->
     </footer>
     <script src="./assets/scripts/script-football.js"></script>
-</body>
+  </body>
 </html>
