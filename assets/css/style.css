@@ -134,26 +134,6 @@ button:hover {
   margin: 0;
   padding:10px;
 }
-/*
-.home-team-score-wrapper,
-.away-team-score-wrapper {
-  background-color: black;
-  color: #ffffff;
-  border: 5px solid #ffffff;
-  height: 120px;
-  margin-top: -30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#home-team-score,
-#away-team-score {
-  font-size: 120px;
-  font-family: 'Digital-7', Arial;
-  margin-top: 0px;
-}
-*/
 
 #home-team-score,
 #away-team-score {
@@ -202,18 +182,22 @@ button:hover {
   }
 
   #scoreboard {
-  font-size: 35px;
+    font-size: 35px;
   }
   
   #home-team-score,
   #away-team-score {
-  font: 100px 'Digital-7', Arial;
-  padding: 7px;
+    font: 100px 'Digital-7', Arial;
+    padding: 7px;
   }
 
   #start-button,
   #next-question-button {
-  font-size: 20px;
+    font-size: 20px;
 }
+
+  #progress-bar {
+    justify-content: space-evenly;
+  }
 
 }
